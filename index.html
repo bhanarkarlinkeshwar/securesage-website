@@ -622,10 +622,10 @@
                 <span>Secure Sage</span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="navigateToHome()">Home</a></li>
                 <li><a onclick="navigateToServices()">Services</a></li>
-                <li><a onclick="showPage('about')">About</a></li>
-                <li><a onclick="showPage('contact')">Contact</a></li>
+                <li><a onclick="navigateToAbout()">About</a></li>
+                <li><a onclick="navigateToContact()">Contact</a></li>
                 <li><a onclick="showPage('payment')" class="payment-link">Payment</a></li>
                 <li><a onclick="showPage('privacy')">Privacy</a></li>
             </ul>
@@ -948,7 +948,11 @@
             });
             document.getElementById(pageName).classList.add('active');
             document.getElementById('navLinks').classList.remove('active');
-            window.scrollTo(0, 0);
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function navigateToHome() {
+            showPage('home');
         }
 
         function navigateToServices() {
@@ -963,6 +967,14 @@
                     servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }, 100);
+        }
+
+        function navigateToAbout() {
+            showPage('about');
+        }
+
+        function navigateToContact() {
+            showPage('contact');
         }
 
         function copyText(text, button) {
